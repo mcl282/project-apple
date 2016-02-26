@@ -8,22 +8,25 @@ $accent-color: #FC575E;
 $accent-color-2: #44BBFF;
 $alternative-background-color: #F0F1F5;
 
-/* light gray #F0F1F5*/
-
+/* fonts */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+body {
+  font-family: 'Open Sans', sans-serif;
+}
 
 /* navbar */
 .navbar-default {
   background-color: $secondary-color;
 }
 .navbar-default .navbar-brand {
-  color: $alternative-background-color;
+  color: $primary-color;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
   color: $primary-color;
 }
 .navbar-default .navbar-text {
-  color: $alternative-background-color;
+  color: $primary-color;
 }
 .navbar-default .navbar-nav > li > a {
   color: $alternative-background-color;
@@ -80,3 +83,20 @@ $alternative-background-color: #F0F1F5;
     background-color: $primary-color;
   }
 }
+
+/* forms */
+.form-control:focus {
+  border-color: $primary-color;
+}
+
+/* button */
+.btn-default {
+  background-color: $alternative-background-color;
+}
+
+.btn-primary {
+  color: $primary-color;
+  background-color: $secondary-color;
+  border-color: $primary-color;
+}
+
