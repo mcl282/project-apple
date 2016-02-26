@@ -30,10 +30,19 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+#need this for guard to run
+gem 'guard', '~> 2.13'
+
+group :production do
+  gem 'pg', '~> 0.18.4'
+  gem 'rails_12factor', '~> 0.0.3'
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
+end
+group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
@@ -44,7 +53,9 @@ group :development, :test do
   gem 'sqlite3'
 end
 
-group :production do
-  gem 'pg', '~> 0.18.4'
-  gem 'rails_12factor', '~> 0.0.3'
+group :test do  
+  gem 'minitest-reporters', '~> 1.1', '>= 1.1.8'
+  gem 'mini_backtrace', '~> 0.1.3'
+  gem 'guard-minitest', '~> 2.4', '>= 2.4.4'
 end
+
