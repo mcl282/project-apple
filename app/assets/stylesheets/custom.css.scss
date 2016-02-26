@@ -1,0 +1,82 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* mixins, variables, etc */
+$primary-color: #66CC99;
+$secondary-color: #112233;
+$accent-color: #FC575E;
+$accent-color-2: #44BBFF;
+$alternative-background-color: #F0F1F5;
+
+/* light gray #F0F1F5*/
+
+
+/* navbar */
+.navbar-default {
+  background-color: $secondary-color;
+}
+.navbar-default .navbar-brand {
+  color: $alternative-background-color;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: $primary-color;
+}
+.navbar-default .navbar-text {
+  color: $alternative-background-color;
+}
+.navbar-default .navbar-nav > li > a {
+  color: $alternative-background-color;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: $primary-color;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: $accent-color;
+  background-color: $primary-color;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: $secondary-color;
+  background-color: $primary-color;
+}
+.navbar-default .navbar-toggle {
+  border-color: $primary-color;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: $primary-color;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: $alternative-background-color;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: $alternative-background-color;
+}
+.navbar-default .navbar-link {
+  color: $alternative-background-color;
+}
+.navbar-default .navbar-link:hover {
+  color: $accent-color;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: $alternative-background-color;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: $accent-color;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: $accent-color;
+    background-color: $primary-color;
+  }
+}
