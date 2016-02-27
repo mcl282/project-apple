@@ -14,6 +14,10 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+#welcomepage { 
+    color: $primary-color;
+}
+
 /* navbar */
 .navbar-default {
   background-color: $secondary-color;
@@ -97,6 +101,17 @@ body {
 .btn-primary {
   color: $primary-color;
   background-color: $secondary-color;
-  border-color: $primary-color;
+  border-color: $accent-color;
 }
 
+/* jumbotron */
+.jumbotron {
+  background-color:$alternative-background-color;
+}
+  
+  
+  
+  
+  
+  
+  
