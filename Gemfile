@@ -26,6 +26,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # devise gem
 gem 'devise', '~> 3.5', '>= 3.5.6'
 
+# gem for finding location based on ip address
+gem 'geocoder', '~> 1.3', '>= 1.3.1'
+
 #add figaro to manage api keys
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 
