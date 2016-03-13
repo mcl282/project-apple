@@ -26,6 +26,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # devise gem
 gem 'devise', '~> 3.5', '>= 3.5.6'
 
+#add figaro to manage api keys
+gem 'figaro', '~> 1.1', '>= 1.1.1'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
