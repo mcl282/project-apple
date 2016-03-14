@@ -14,12 +14,14 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+
 @import url(https://fonts.googleapis.com/css?family=Oleo+Script:400,700);
 .logofont {
   font-family: 'Oleo Script', cursive;
 }
 
-/* navbar */
+
+/* welcome pages */
 #welcomepage { 
     color: $primary-color;
 }
@@ -102,14 +104,35 @@ body {
 
 /* button */
 .btn-default {
-  background-color: $alternative-background-color;
-}
-
-.btn-primary {
   color: $primary-color;
   background-color: $secondary-color;
   border-color: $accent-color;
 }
+
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open>.dropdown-toggle.btn-default {
+    color: $secondary-color;
+    background-color: $primary-color;
+    border-color: $accent-color; /*set the color you want here*/
+    font-weight: bold;
+}
+
+.btn-lg {
+  color: $primary-color;
+  background-color: $secondary-color;
+  border-color: $accent-color;
+}
+
+.btn-lg:hover, .btn-lg:focus, .btn-lg:active, .btn-lg.active, .open>.dropdown-toggle.btn-lg {
+    color: $secondary-color;
+    background-color: $primary-color;
+    border-color: $accent-color; /*set the color you want here*/
+    font-weight: bold;
+}
+
+
+
+
+
 
 /* jumbotron */
 .jumbotron {
@@ -117,7 +140,12 @@ body {
 }
   
   
-  
+/* container */ 
+
+.sign-up
+{
+  background-color:$alternative-background-color;
+}
   
   
   
