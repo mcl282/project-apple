@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  manager_id: 
+  tenant_id: 
+  latitude: 1.5
+  longitude: 1.5
+  address: MyString
+  ip_address: MyString
+
+two:
+  manager_id: 
+  tenant_id: 
+  latitude: 1.5
+  longitude: 1.5
+  address: MyString
+  ip_address: MyString
