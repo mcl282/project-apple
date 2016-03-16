@@ -26,8 +26,6 @@ class Manager::SessionsController < Devise::SessionsController
    end
    
    def new_location_log(resource)
-     ip = resource.current_sign_in_ip
-     id = resource.id
-     LocationLog.create(id: id, ip_address: ip)
+     LocationLog.create(manager_id: resource.id, ip_address: resource.current_sign_in_ip)
    end
 end
