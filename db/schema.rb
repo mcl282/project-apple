@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160317025633) do
+ActiveRecord::Schema.define(version: 20160317030246) do
 
   create_table "location_logs", force: :cascade do |t|
     t.integer  "manager_id"
@@ -65,9 +65,11 @@ ActiveRecord::Schema.define(version: 20160317025633) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "property_id"
   end
 
   add_index "tenants", ["email"], name: "index_tenants_on_email", unique: true
+  add_index "tenants", ["property_id"], name: "index_tenants_on_property_id"
   add_index "tenants", ["reset_password_token"], name: "index_tenants_on_reset_password_token", unique: true
 
 end
