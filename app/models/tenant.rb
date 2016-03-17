@@ -5,5 +5,7 @@ class Tenant < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   
   belongs_to :property
-
+  
+  has_and_belongs_to_many :managers
+  has_many :maintenance_requests
 end

@@ -5,5 +5,8 @@ class Manager < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   
   belongs_to :property
+  belongs_to :maintenance_team
+  
+  has_and_belongs_to_many :tenants
   has_many :location_logs
 end
