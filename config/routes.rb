@@ -1,17 +1,20 @@
 Rails.application.routes.draw do
-  get 'maintenance_requests/index'
+  
+  resources :maintenance_requests #restrict controller actions by using this syntax:  , only: [:edit]
+  
+  #get 'maintenance_requests/index'
 
-  get 'maintenance_requests/show'
+  #get 'maintenance_requests/show'
 
-  get 'maintenance_requests/new'
+  #get 'maintenance_requests/new'
 
-  get 'maintenance_requests/create'
+  #get 'maintenance_requests/create'
 
-  get 'maintenance_requests/edit'
+  #get 'maintenance_requests/edit'
 
-  get 'maintenance_requests/update'
+  #get 'maintenance_requests/update'
 
-  get 'maintenance_requests/destroy'
+  #get 'maintenance_requests/destroy'
 
   devise_for :tenants
   devise_for :managers,  controllers: { sessions: "manager/sessions" }
