@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tenant_id: 
+  maintenance_team_id: 
+  request_message: MyText
+  request_open: false
+
+two:
+  tenant_id: 
+  maintenance_team_id: 
+  request_message: MyText
+  request_open: false
