@@ -2,7 +2,7 @@
   <%= render 'shared/error_messages', object: f.object %>
   
   <div class="form-group">
-    <%= f.text_area :request_message, placeholder: "Please proivde details of service requested" %>
+    <%= f.text_area :request_message, placeholder: "Please proivde details of service requested", size: "60x12", class: "form-control" %>
   </div>
   
   <%= f.submit "Submit", class: "btn btn-primary" %>

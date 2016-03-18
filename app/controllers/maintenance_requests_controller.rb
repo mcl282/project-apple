@@ -6,6 +6,7 @@ before_action :authenticate_tenant!
   end
 
   def show
+    @tenant = Tenant.find(current_tenant)
     @maintenance_request = MaintenanceRequest.find(params[:id])
     @maintenance_requests = MaintenanceRequest.where(tenant_id: current_tenant.id)
   end
@@ -18,6 +19,7 @@ before_action :authenticate_tenant!
     @maintenance_request = current_tenant.maintenance_requests.build(maintenance_request_params)
     if @maintenance_request.save
       flash[:success] = "Request successfully submitted!"
+      redirect_to maintenance_request_path(current_tenant) 
     else
       flash[:unsuccessful] = "Request was not submitted, please try again."
     end
