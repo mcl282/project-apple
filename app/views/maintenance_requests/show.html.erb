@@ -1,2 +1,8 @@
 <h1>MaintenanceRequests#show</h1>
 <p>Find me in app/views/maintenance_requests/show.html.erb</p>
+<% @maintenance_request.request_message %>
+
+
+<% @maintenance_requests.each do |rqst| %>
+  <%= rqst.request_message %>
+<% end %>

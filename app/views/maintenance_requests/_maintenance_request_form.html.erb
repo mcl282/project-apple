@@ -1,0 +1,11 @@
+<%= form_for(@maintenance_request, html: {multipart: true}) do |f|%>
+  <%= render 'shared/error_messages', object: f.object %>
+  
+  <div class="form-group">
+    <%= f.text_area :request_message, placeholder: "Please proivde details of service requested" %>
+  </div>
+  
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+
+<% end %>
+
