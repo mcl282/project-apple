@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tenant_id: 
+  maintenance_team_id: 
+  maintenance_thread_title: MyString
+
+two:
+  tenant_id: 
+  maintenance_team_id: 
+  maintenance_thread_title: MyString

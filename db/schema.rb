@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160317032727) do
+ActiveRecord::Schema.define(version: 20160318231422) do
 
   create_table "location_logs", force: :cascade do |t|
     t.integer  "manager_id"
@@ -27,16 +27,29 @@ ActiveRecord::Schema.define(version: 20160317032727) do
   add_index "location_logs", ["manager_id"], name: "index_location_logs_on_manager_id"
   add_index "location_logs", ["tenant_id"], name: "index_location_logs_on_tenant_id"
 
+  create_table "maintenance_conversations", force: :cascade do |t|
+    t.integer  "tenant_id"
+    t.integer  "maintenance_team_id"
+    t.string   "maintenance_conversation_title"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
+  add_index "maintenance_conversations", ["maintenance_team_id"], name: "index_maintenance_conversations_on_maintenance_team_id"
+  add_index "maintenance_conversations", ["tenant_id"], name: "index_maintenance_conversations_on_tenant_id"
+
   create_table "maintenance_requests", force: :cascade do |t|
     t.integer  "tenant_id"
     t.integer  "maintenance_team_id"
     t.text     "request_message"
     t.boolean  "request_open"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.integer  "maintenance_thread_id"
   end
 
   add_index "maintenance_requests", ["maintenance_team_id"], name: "index_maintenance_requests_on_maintenance_team_id"
+  add_index "maintenance_requests", ["maintenance_thread_id"], name: "index_maintenance_requests_on_maintenance_thread_id"
   add_index "maintenance_requests", ["tenant_id"], name: "index_maintenance_requests_on_tenant_id"
 
   create_table "maintenance_teams", force: :cascade do |t|
@@ -46,6 +59,17 @@ ActiveRecord::Schema.define(version: 20160317032727) do
   end
 
   add_index "maintenance_teams", ["property_id"], name: "index_maintenance_teams_on_property_id"
+
+  create_table "maintenance_threads", force: :cascade do |t|
+    t.integer  "tenant_id"
+    t.integer  "maintenance_team_id"
+    t.string   "maintenance_thread_title"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "maintenance_threads", ["maintenance_team_id"], name: "index_maintenance_threads_on_maintenance_team_id"
+  add_index "maintenance_threads", ["tenant_id"], name: "index_maintenance_threads_on_tenant_id"
 
   create_table "managers", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

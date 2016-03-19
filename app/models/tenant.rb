@@ -8,4 +8,5 @@ class Tenant < ActiveRecord::Base
   
   has_and_belongs_to_many :managers
   has_many :maintenance_requests
+  has_many :maintenance_threads
 end

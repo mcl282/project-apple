@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   resources :maintenance_requests #restrict controller actions by using this syntax:  , only: [:edit]
-  
+  resources :maintenance_threads
   #get 'maintenance_requests/index'
 
   #get 'maintenance_requests/show'
