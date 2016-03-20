@@ -1,5 +1,6 @@
 class MaintenanceRequestsController < ApplicationController
 before_action :authenticate_tenant!
+before_create :signed_in_tenant_created_request
 
   def index
     
@@ -40,4 +41,7 @@ before_action :authenticate_tenant!
       params.require(:maintenance_request).permit(:request_message)
     end
 
+    def signed_in_tenant_created_request
+      tenant_id == current_tenant.id?
+    end
 end

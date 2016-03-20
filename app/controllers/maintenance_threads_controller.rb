@@ -8,9 +8,8 @@ before_action :authenticate_tenant!
   def show
     @tenant = Tenant.find(current_tenant)
     @maintenance_thread = MaintenanceThread.find(params[:id])
-    @maintenance_threads = MaintenanceThread.where(tenant_id: current_tenant.id)
-    @maintenance_requests = MaintenanceRequest.all
-    #where("tenant_id = ?", current_tenant.id)
+    @maintenance_threads = MaintenanceThread.where(:tenant_id => current_tenant.id)
+    @maintenance_requests = MaintenanceRequest.where(:tenant_id => current_tenant.id)
     
   end
 
@@ -43,7 +42,7 @@ before_action :authenticate_tenant!
     def maintenance_thread_params
       params.require(:maintenance_thread).permit(:tenant_id, :maintenance_thread_title, maintenance_requests_attributes: [:id,:tenant_id, :maintenance_thread_id, :request_message])
     end
-
+    
 
 
 
