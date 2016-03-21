@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   #get 'maintenance_requests/destroy'
 
   devise_for :tenants
-  devise_for :managers,  controllers: { sessions: "manager/sessions" }
+  devise_for :managers,  controllers: { sessions: "manager/sessions", registrations: "manager/registrations"}
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

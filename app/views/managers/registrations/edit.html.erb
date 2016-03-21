@@ -27,6 +27,12 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+    <%= f.label :maintenance_team_id %><br />
+    <%= f.text_field :maintenance_team_id, autofocus: true %>
+  </div>
+
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>

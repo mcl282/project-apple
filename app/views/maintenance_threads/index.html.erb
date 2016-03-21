@@ -1,0 +1,24 @@
+<h1>MaintenanceThreads#index</h1>
+<p>Find me in app/views/maintenance_threads/index.html.erb</p>
+
+<%= current_manager.email unless current_manager == nil %>
+<%= current_tenant.email unless current_tenant == nil %>
+
+
+<div = "row">
+  <div class="col-md-5">
+    <h3>All Maintenance Requests</h3>
+      <% @maintenance_threads.each do |thread| %>
+        <table class="table table-hover">
+          <tr>
+            <td>
+              <%= link_to "#{thread.maintenance_thread_title}", maintenance_thread_path(thread) %>
+            </td>
+            <td align ="right">
+              <%="#{thread.created_at.strftime("%B %e, %Y at %I:%M %p")}"%>
+            </td>
+          </tr>
+        </table>
+      <% end %>      
+  </div>
+</div>

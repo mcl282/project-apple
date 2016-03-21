@@ -1,8 +1,19 @@
 class MaintenanceThreadsController < ApplicationController
-before_action :authenticate_tenant!
+before_action do 
+  if current_tenant != nil 
+    authenticate_tenant!
+  else
+    authenticate_manager!
+  end
+end
 
   def index
-    
+    if tenant_signed_in?
+      @maintenance_threads = MaintenanceThread.where(:tenant_id => current_tenant.id)
+    elsif 
+      @maintenance_threads = MaintenanceThread.where(:maintenance_team_id => current_manager.maintenance_team_id)
+    #
+    end
   end
 
   def show
@@ -10,7 +21,7 @@ before_action :authenticate_tenant!
     @maintenance_thread = MaintenanceThread.find(params[:id])
     @maintenance_threads = MaintenanceThread.where(:tenant_id => current_tenant.id)
     @maintenance_requests = MaintenanceRequest.where(:tenant_id => current_tenant.id)
-    
+    @maintenance_request = MaintenanceRequest.new
   end
 
   def new
@@ -23,7 +34,7 @@ before_action :authenticate_tenant!
     #@maintenance_thread.maintenance_requests.first.tenant_id = current_tenant.id
     if @maintenance_thread.save
       flash[:success] = "Request successfully submitted!"
-      redirect_to maintenance_thread_path(current_tenant) 
+      redirect_to @maintenance_thread
     else
       flash[:unsuccessful] = "Request was not submitted, please try again."
     end
