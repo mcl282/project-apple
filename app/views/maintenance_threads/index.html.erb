@@ -1,8 +1,9 @@
 <h1>MaintenanceThreads#index</h1>
 <p>Find me in app/views/maintenance_threads/index.html.erb</p>
+<%= link_to "Submit new request", new_maintenance_thread_path %>
 
 <%= current_manager.email unless current_manager == nil %>
-<%= current_tenant.email unless current_tenant == nil %>
+<%= "#{current_tenant.first_name} #{current_tenant.last_name}" unless current_tenant == nil %>
 
 
 <div = "row">

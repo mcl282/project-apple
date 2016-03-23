@@ -1,5 +1,11 @@
 class MaintenanceRequestsController < ApplicationController
-before_action :authenticate_tenant!
+before_action do 
+  if current_tenant != nil 
+    authenticate_tenant!
+  else
+    authenticate_manager!
+  end
+end
 
 
   def index
@@ -18,7 +24,13 @@ before_action :authenticate_tenant!
   end
 
   def create
-    @maintenance_request = current_tenant.maintenance_requests.build(maintenance_request_params)
+    if tenant_signed_in?
+      @maintenance_request = current_tenant.maintenance_requests.build(maintenance_request_params)
+      elsif manager_signed_in?
+        @maintenance_request = current_manager.maintenance_team.maintenance_thread.maintenance_request.build(maintenance_request_params)
+        #THIS NEEDS TO BE FIXED!!
+    end
+        
     if @maintenance_request.save
       flash[:success] = "Request successfully submitted!"
       redirect_to :back

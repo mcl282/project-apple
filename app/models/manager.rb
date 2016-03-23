@@ -9,4 +9,5 @@ class Manager < ActiveRecord::Base
   
   has_and_belongs_to_many :tenants
   has_many :location_logs
+   has_many :maintenance_requests, through: :maintenance_threads
 end
