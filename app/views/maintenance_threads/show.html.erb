@@ -7,24 +7,21 @@
 
 
 <div class = "row">
-  <div class="col-md-6">
-    <div class="panel panel-title">
-      <h3><%= "#{@maintenance_thread.maintenance_thread_title} submitted #{@maintenance_thread.created_at.strftime("%B %e, %Y at %I:%M %p")}" %></h3>
-    </div>  
-    <%= render 'maintenance_requests/maintenance_request_form' %>
+  <div class="col-md-5">
+    <h3><%= "#{@maintenance_thread.maintenance_thread_title}" %></h3> 
+        <h5><%= "submitted #{@maintenance_thread.created_at.strftime("%B %e, %Y at %I:%M %p")}" %></h5>
+        <%= render 'maintenance_requests/maintenance_request_form' %>
+      
+      <div class="panel-default">  
         <% @maintenance_requests.where(:maintenance_thread_id => @maintenance_thread.id).each do |rqst|%>
-          <div class="panel-title">
-            <%= @tenant.email %>
+          <div class="panel-heading panel-heading-custom">
+            <h3 class="panel-title"><%="#{@tenant.email}"%></h3>
           </div>
-            <div class="panel panel-primary">
-              <%= rqst.created_at.strftime("%B %e, %Y at %I:%M %p") %>
-            </div>
-              <div class="panel-body">
-                <%= rqst.request_message %>
-              </div>  
-  
+          <div class="panel-body panel-body-custom">      
+            <p><i><%= rqst.created_at.strftime("%B %e, %Y at %I:%M %p") %></i></p>
+            <p><%= rqst.request_message %></p>
+          </div>
         <% end %>
-  </div>
+      </div>
+  </div>  
 </div>
-
-  

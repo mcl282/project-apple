@@ -1,7 +1,7 @@
 <%= form_for(@maintenance_thread, html: {multipart: true}) do |f|%>
   <%= render 'shared/error_messages', object: f.object %>
   
-<%= current_manager.email %>
+<%= current_manager.email unless current_manager == nil %>
   
   <div class="form-group">
     <%= f.text_field :maintenance_thread_title, placeholder: "Maintenance request title", class: "form-control"%>

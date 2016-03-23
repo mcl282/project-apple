@@ -107,6 +107,7 @@ body {
   color: $primary-color;
   background-color: $secondary-color;
   border-color: $accent-color;
+  margin-top: 5px;
 }
 
 .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open>.dropdown-toggle.btn-default {
@@ -148,5 +149,17 @@ body {
 }
   
   
-  
-  
+/* panel */  
+
+
+
+.panel-default > .panel-heading-custom {
+  background-color:$secondary-color;
+  color: $primary-color;
+}
+
+.panel-default > .panel-body-custom {
+  background-color: $alternative-background-color;
+  color: $secondary-color;
+  margin-bottom: 10px;
+}
