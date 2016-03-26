@@ -22,12 +22,12 @@ end
       @tenant = Tenant.find(current_tenant)
       @maintenance_thread = MaintenanceThread.find(params[:id])
       @maintenance_threads = MaintenanceThread.where(:tenant_id => current_tenant.id)
-      @maintenance_requests = MaintenanceRequest.where(:tenant_id => current_tenant.id)
+      @maintenance_requests = MaintenanceRequest.where(:maintenance_thread_id => @maintenance_thread.id)
       elsif manager_signed_in?
       @manager = Manager.find(current_manager)
       @maintenance_thread = MaintenanceThread.find(params[:id])
       @maintenance_threads = MaintenanceThread.where(:maintenance_team_id => current_manager.maintenance_team_id)
-      @maintenance_requests = MaintenanceRequest.where(:maintenance_team_id => current_manager.maintenance_team_id)
+      @maintenance_requests = MaintenanceRequest.where(:maintenance_team_id => current_manager.maintenance_team_id, :maintenance_thread_id => @maintenance_thread.id)
     end
     
   end
@@ -39,7 +39,6 @@ end
 
   def create
     @maintenance_thread = current_tenant.maintenance_threads.build(maintenance_thread_params)
-    #@maintenance_thread.maintenance_requests.first.tenant_id = current_tenant.id
     if @maintenance_thread.save
       flash[:success] = "Request successfully submitted!"
       redirect_to @maintenance_thread

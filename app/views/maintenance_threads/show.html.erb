@@ -13,7 +13,7 @@
         <%= render 'maintenance_requests/maintenance_request_form' %>
       
       <div class="panel-default">  
-        <% @maintenance_requests.where(:maintenance_thread_id => @maintenance_thread.id).each do |rqst|%>
+        <% @maintenance_requests.each do |rqst|%>
             <% if rqst.tenant_id == nil %> 
               <div class="panel-heading panel-heading-manager">
                 <h3 class="panel-title">
