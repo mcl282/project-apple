@@ -40,7 +40,9 @@ class Manager::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
    def configure_sign_up_params
-     devise_parameter_sanitizer.for(:sign_up) << :maintenance_team_id
+     devise_parameter_sanitizer.for(:sign_up) do |u|
+      u.permit(:first_name, :last_name, :email, :password, :password_confirmation, :maintenance_team_id)
+     end
    end
 
   # If you have extra params to permit, append them to the sanitizer.

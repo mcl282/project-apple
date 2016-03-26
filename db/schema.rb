@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160323144618) do
+ActiveRecord::Schema.define(version: 20160326155038) do
 
   create_table "location_logs", force: :cascade do |t|
     t.integer  "manager_id"
@@ -88,6 +88,8 @@ ActiveRecord::Schema.define(version: 20160323144618) do
     t.datetime "updated_at",                          null: false
     t.integer  "property_id"
     t.integer  "maintenance_team_id"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "managers", ["email"], name: "index_managers_on_email", unique: true

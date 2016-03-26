@@ -31,7 +31,7 @@ end
       @maintenance_request = current_tenant.maintenance_requests.build(maintenance_request_params)
       elsif manager_signed_in?
         @maintenance_request = current_manager.maintenance_requests.build(maintenance_request_params)
-        #THIS NEEDS TO BE FIXED!!
+        
     end
         
     if @maintenance_request.save

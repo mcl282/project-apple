@@ -153,7 +153,12 @@ body {
 
 
 
-.panel-default > .panel-heading-custom {
+.panel-default > .panel-heading-manager {
+  background-color:$primary-color;
+  color: $secondary-color;
+}
+
+.panel-default > .panel-heading-tenant {
   background-color:$secondary-color;
   color: $primary-color;
 }
