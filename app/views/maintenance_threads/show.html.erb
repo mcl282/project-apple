@@ -15,7 +15,13 @@
       <div class="panel-default">  
         <% @maintenance_requests.where(:maintenance_thread_id => @maintenance_thread.id).each do |rqst|%>
           <div class="panel-heading panel-heading-custom">
-            <h3 class="panel-title"><%="#{rqst.tenant.first_name} #{rqst.tenant.last_name}"%></h3>
+            <h3 class="panel-title">
+              <% if rqst.tenant_id == nil %> 
+                <%="#{rqst.manager.email}"%>
+              <% elsif rqst.manager_id== nil %>
+                <%="#{rqst.tenant.first_name} #{rqst.tenant.last_name}"%>
+              <% end %>
+              </h3>
           </div>
           <div class="panel-body panel-body-custom">      
             <p><i><%= rqst.created_at.strftime("%B %e, %Y at %I:%M %p") %></i></p>

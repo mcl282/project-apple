@@ -6,7 +6,7 @@
     <% if tenant_signed_in? %>
       <%=  f.hidden_field :tenant_id, :value => current_tenant.id %>
           <% elsif manager_signed_in? %>
-          <%= f.hidden_field :maintenance_team_id, :value => current_manager.maintenance_team_id %>
+          <%= f.hidden_field :manager_id, :value => current_manager.id %>
     <% end %>
     
     <%= f.hidden_field :maintenance_thread_id, :value => @maintenance_thread.id%>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160323031518) do
+ActiveRecord::Schema.define(version: 20160323144618) do
 
   create_table "location_logs", force: :cascade do |t|
     t.integer  "manager_id"
@@ -46,10 +46,12 @@ ActiveRecord::Schema.define(version: 20160323031518) do
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
     t.integer  "maintenance_thread_id"
+    t.integer  "manager_id"
   end
 
   add_index "maintenance_requests", ["maintenance_team_id"], name: "index_maintenance_requests_on_maintenance_team_id"
   add_index "maintenance_requests", ["maintenance_thread_id"], name: "index_maintenance_requests_on_maintenance_thread_id"
+  add_index "maintenance_requests", ["manager_id"], name: "index_maintenance_requests_on_manager_id"
   add_index "maintenance_requests", ["tenant_id"], name: "index_maintenance_requests_on_tenant_id"
 
   create_table "maintenance_teams", force: :cascade do |t|

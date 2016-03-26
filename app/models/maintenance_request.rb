@@ -1,5 +1,6 @@
 class MaintenanceRequest < ActiveRecord::Base
   belongs_to :tenant
+  belongs_to :manager
   belongs_to :property
   belongs_to :maintenance_team
   belongs_to :maintenance_thread
