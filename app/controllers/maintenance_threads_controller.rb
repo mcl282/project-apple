@@ -18,14 +18,13 @@ end
 
   def show
     @maintenance_request = MaintenanceRequest.new
+    @maintenance_thread = MaintenanceThread.find(params[:id])
     if tenant_signed_in?
       @tenant = Tenant.find(current_tenant)
-      @maintenance_thread = MaintenanceThread.find(params[:id])
       @maintenance_threads = MaintenanceThread.where(:tenant_id => current_tenant.id)
       @maintenance_requests = MaintenanceRequest.where(:maintenance_thread_id => @maintenance_thread.id)
       elsif manager_signed_in?
       @manager = Manager.find(current_manager)
-      @maintenance_thread = MaintenanceThread.find(params[:id])
       @maintenance_threads = MaintenanceThread.where(:maintenance_team_id => current_manager.maintenance_team_id)
       @maintenance_requests = MaintenanceRequest.where(:maintenance_team_id => current_manager.maintenance_team_id, :maintenance_thread_id => @maintenance_thread.id)
     end
