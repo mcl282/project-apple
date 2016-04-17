@@ -17,8 +17,12 @@ end
   end
 
   def show
+    #allows tenant to create a new request from the threads show page
     @maintenance_request = MaintenanceRequest.new
+    
+    #allows tenant to create a new request from the threads show page
     @maintenance_thread = MaintenanceThread.find(params[:id])
+    
     if tenant_signed_in?
       @tenant = Tenant.find(current_tenant)
       @maintenance_threads = MaintenanceThread.where(:tenant_id => current_tenant.id)
