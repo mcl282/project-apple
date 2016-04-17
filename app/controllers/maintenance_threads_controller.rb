@@ -51,9 +51,17 @@ end
   end
 
   def edit
+    @maintenance_thread = MaintenanceThread.find(params[:id])
   end
 
   def update
+    @maintenance_thread = MaintenanceThread.find(params[:id])
+    if @maintenance_thread.update(close_thread_params)
+      flash[:success] = "Thread closed"
+      redirect_to maintenance_threads_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -61,7 +69,11 @@ end
 
   private
     def maintenance_thread_params
-      params.require(:maintenance_thread).permit(:tenant_id, :maintenance_thread_title, maintenance_requests_attributes: [:id,:tenant_id, :maintenance_thread_id, :request_message])
+      params.require(:maintenance_thread).permit(:tenant_id, :maintenance_thread_title,:thread_open, maintenance_requests_attributes: [:id,:tenant_id, :maintenance_thread_id, :request_message])
+    end
+    
+    def close_thread_params
+      params.permit(:thread_open)
     end
     
 
