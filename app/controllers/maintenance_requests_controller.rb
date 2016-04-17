@@ -51,6 +51,9 @@ end
 
   def destroy
   end
+  
+  def email_response_to_maintenance_request
+  end
 
   private
     def maintenance_request_params

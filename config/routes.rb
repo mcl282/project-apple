@@ -25,6 +25,9 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   
   get 'team'=>'static_pages#team'
+  
+  #this is the callback url for inbound email responses to maintenance request messages
+  get 'email-response-to-maintenance-request'=>'maintenance_requests#email_response_to_maintenance_request'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

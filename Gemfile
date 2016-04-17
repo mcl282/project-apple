@@ -32,6 +32,10 @@ gem 'geocoder', '~> 1.3', '>= 1.3.1'
 #add figaro to manage api keys
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 
+#for sendgrid web API
+gem 'sendgrid', '~> 1.2', '>= 1.2.4'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
