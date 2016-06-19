@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160417021107) do
+ActiveRecord::Schema.define(version: 20160619183912) do
 
   create_table "location_logs", force: :cascade do |t|
     t.integer  "manager_id"
@@ -101,9 +101,36 @@ ActiveRecord::Schema.define(version: 20160417021107) do
   create_table "properties", force: :cascade do |t|
     t.string   "property_name"
     t.string   "property_address"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "building_class"
+    t.integer  "year_built"
+    t.integer  "floor_count_building"
+    t.integer  "unit_count_building"
+    t.integer  "square_footage_building_total"
+    t.text     "description"
+    t.boolean  "cats_and_dogs_allowed"
+    t.boolean  "elevator_building"
+    t.boolean  "full_time_doorman"
+    t.boolean  "concierge"
+    t.boolean  "washer_dryer_in_unit"
+    t.boolean  "laundry_in_building"
+    t.boolean  "fitness_center"
+    t.boolean  "swimming_pool"
+    t.boolean  "parking_available"
+    t.boolean  "common_area"
+    t.boolean  "courtyard_building"
+    t.boolean  "live_in_super"
+    t.boolean  "storage_available"
+    t.boolean  "bikeroom_in_building"
+    t.boolean  "outdoor_space"
+    t.boolean  "deck_building"
+    t.boolean  "roof_deck_building"
+    t.boolean  "terrace_building"
+    t.integer  "manager_id"
   end
+
+  add_index "properties", ["manager_id"], name: "index_properties_on_manager_id"
 
   create_table "tenants", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -126,5 +153,35 @@ ActiveRecord::Schema.define(version: 20160417021107) do
   add_index "tenants", ["email"], name: "index_tenants_on_email", unique: true
   add_index "tenants", ["property_id"], name: "index_tenants_on_property_id"
   add_index "tenants", ["reset_password_token"], name: "index_tenants_on_reset_password_token", unique: true
+
+  create_table "units", force: :cascade do |t|
+    t.integer  "property_id"
+    t.integer  "tenant_id"
+    t.integer  "manager_id"
+    t.float    "total_rooms"
+    t.integer  "bedrooms"
+    t.float    "bathrooms"
+    t.integer  "square_feet_unit"
+    t.integer  "floors"
+    t.boolean  "central_air_conditioning"
+    t.boolean  "dishwasher"
+    t.boolean  "loft"
+    t.boolean  "storage_available"
+    t.boolean  "cable_and_internet"
+    t.boolean  "microwave"
+    t.boolean  "fireplace"
+    t.boolean  "pre_furnished"
+    t.boolean  "disability_access"
+    t.boolean  "deck"
+    t.boolean  "roof_deck"
+    t.boolean  "terrace"
+    t.boolean  "balcony"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "units", ["manager_id"], name: "index_units_on_manager_id"
+  add_index "units", ["property_id"], name: "index_units_on_property_id"
+  add_index "units", ["tenant_id"], name: "index_units_on_tenant_id"
 
 end

@@ -1,0 +1,47 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  property_id: 
+  tenant_id: 
+  manager_id: 
+  total_rooms: 1.5
+  bedrooms: 1
+  bathrooms: 1.5
+  square_feet_unit: 1
+  floors: 1
+  central_air_conditioning: false
+  dishwasher: false
+  loft: false
+  storage_available: false
+  cable_and_internet: false
+  microwave: false
+  fireplace: false
+  pre_furnished: false
+  disability_access: false
+  deck: false
+  roof_deck: false
+  terrace: false
+  balcony: false
+
+two:
+  property_id: 
+  tenant_id: 
+  manager_id: 
+  total_rooms: 1.5
+  bedrooms: 1
+  bathrooms: 1.5
+  square_feet_unit: 1
+  floors: 1
+  central_air_conditioning: false
+  dishwasher: false
+  loft: false
+  storage_available: false
+  cable_and_internet: false
+  microwave: false
+  fireplace: false
+  pre_furnished: false
+  disability_access: false
+  deck: false
+  roof_deck: false
+  terrace: false
+  balcony: false
