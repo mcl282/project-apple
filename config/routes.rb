@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   
   #this is the callback url for inbound email responses to maintenance request messages
   get 'email-response-to-maintenance-request'=>'maintenance_requests#email_response_to_maintenance_request'
+  
+  resources :properties
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

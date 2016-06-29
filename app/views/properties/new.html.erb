@@ -1,0 +1,115 @@
+<% provide(:title, "Add new property") %>
+ 
+
+<%= form_for (@property) do |f| %>
+<%= render 'shared/error_messages', object: f.object %>
+  <div class = "row">
+    <div class="col-md-8">
+
+      <%= f.label :property_name %>
+      <%= f.text_field :property_name, class: 'form-control', placeholder:"Please enter property name here" %><br/>
+          
+      <%= f.label :property_address %>
+      <%= f.text_field :property_address, class: 'form-control' %><br/>
+    </div> 
+  </div>    
+        
+  <div class = "row">
+    <div class="col-md-4">
+      <%= f.label :year_built %>
+      <%= f.text_field :year_built, class: 'form-control' %><br/>
+      
+      <%= f.label :building_class %> 
+      <%= f.text_field :building_class, class: 'form-control' %><br /> 
+      
+      <%= f.label :description %> 
+      <%= f.text_area :description, class: 'form-control',  rows: '3'%><br />	
+	    
+    </div>
+  
+    <div class="col-md-2">
+        
+      <%= f.label :floor_count_building, "Total floors" %> 
+      <%= f.text_field :floor_count_building, class: 'form-control' %><br/>	
+      
+      <%= f.label :unit_count_building, "Total units" %> 
+      <%= f.text_field :unit_count_building, class: 'form-control' %><br/>	
+      
+      <%= f.label :square_footage_building_tota, "Total square footage" %> 
+      <%= f.text_field :square_footage_building_total, class: 'form-control' %><br/> 
+        
+    </div>
+   
+    <div class="col-md-2">
+       <div class="checkbox">
+  
+        <%= f.check_box :full_time_doorman %> 
+        <%= f.label :full_time_doorman %><br/>
+        
+        <%= f.check_box :concierge %> 
+        <%= f.label :concierge %><br/>	 
+        
+        <%= f.check_box :live_in_super %> 
+        <%= f.label :live_in_super %><br/>
+        
+        <%= f.check_box :cats_and_dogs_allowed %>	
+        <%= f.label :cats_and_dogs_allowed %><br/>
+        
+        <%= f.check_box :elevator_building %> 
+        <%= f.label :elevator_building %><br/>            
+      
+        <%= f.check_box :parking_available %> 
+        <%= f.label :parking_available, "Parking" %><br/>      
+   	
+      </div>
+    </div>    
+        
+    <div class="col-md-2">
+       <div class="checkbox">
+        <%= f.check_box :fitness_center %> 
+        <%= f.label :fitness_center %><br/>
+        
+        <%= f.check_box :swimming_pool %> 
+        <%= f.label :swimming_pool %><br/>	
+        
+        <%= f.check_box :common_area %> 
+        <%= f.label :common_area %><br/>	    
+    
+        <%= f.check_box :outdoor_space %> 
+        <%= f.label :outdoor_space %><br/>	 
+        
+        <%= f.check_box :deck_building %> 
+        <%= f.label :deck_building, "Deck" %><br/>	
+        
+        <%= f.check_box :roof_deck_building %> 
+        <%= f.label :roof_deck_building, "Roof deck" %><br/>	
+        
+        <%= f.check_box :terrace_building %> 
+        <%= f.label :terrace_building, "Terrace" %><br/>
+      </div>      
+    </div>    
+        
+    <div class="col-md-2">
+      <div class="checkbox">
+  
+    
+        <%= f.check_box :washer_dryer_in_unit %> 
+        <%= f.label :washer_dryer_in_unit  %><br/>	
+        
+        <%= f.check_box :laundry_in_building %> 
+        <%= f.label :laundry_in_building %><br/>	
+        
+        <%= f.check_box :courtyard_building %> 
+        <%= f.label :courtyard_building, "Courtyard" %><br/>	
+        
+        <%= f.check_box :storage_available %> 
+        <%= f.label :storage_available, "Storage"%><br/>	
+        
+        <%= f.check_box :bikeroom_in_building %> 
+        <%= f.label :bikeroom_in_building, "Bikeroom" %><br/>		    
+      </div>
+    </div>    
+   </div>
+  <%= f.hidden_field :manager_id, :value => current_manager.id%>
+  <%= f.submit "Add Building"%>
+<% end %>
