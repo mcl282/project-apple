@@ -1,8 +1,8 @@
 class PropertiesController < ApplicationController
-  
+before_filter :authenticate_manager!  
   
   def index
-    
+    @property = Property.where(:manager_id => current_manager.id)
   end
   
   def show
@@ -17,8 +17,8 @@ class PropertiesController < ApplicationController
     @property = Property.new(property_params)
     #@property.save
     if @property.save
-      flash[:success] = "Property created"
-      redirect_to root_path
+      flash[:success] = "Property created!"
+      redirect_to properties_path
     else
       flash[:error] = "Property was not created"
       render new_property_path
@@ -49,7 +49,7 @@ class PropertiesController < ApplicationController
 
 private
     def property_params
-      params.require(:property).permit(:property_name, :property_address, :building_class, :year_built, :floor_count_building, :unit_count_building, :square_footage_building_total, :description, :cats_and_dogs_allowed, :elevator_building, :full_time_doorman, :concierge, :washer_dryer_in_unit, :laundry_in_building, :fitness_center, :swimming_pool, :parking_available, :common_area, :courtyard_building, :live_in_super, :storage_available, :bikeroom_in_building, :outdoor_space, :deck_building, :roof_deck_building, :terrace_building)
+      params.require(:property).permit(:property_name, :property_address, :building_class, :year_built, :floor_count_building, :unit_count_building, :square_footage_building_total, :description, :cats_and_dogs_allowed, :elevator_building, :full_time_doorman, :concierge, :washer_dryer_in_unit, :laundry_in_building, :fitness_center, :swimming_pool, :parking_available, :common_area, :courtyard_building, :live_in_super, :storage_available, :bikeroom_in_building, :outdoor_space, :deck_building, :roof_deck_building, :terrace_building, :manager_id)
     end
 
 end

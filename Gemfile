@@ -35,6 +35,8 @@ gem 'figaro', '~> 1.1', '>= 1.1.1'
 #for sendgrid web API
 gem 'sendgrid', '~> 1.2', '>= 1.2.4'
 
+#form wizard gem
+gem 'wicked-wizard-validations', '~> 0.0.2'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

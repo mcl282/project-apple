@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160629222754) do
+ActiveRecord::Schema.define(version: 20160630214703) do
 
   create_table "location_logs", force: :cascade do |t|
     t.integer  "manager_id"
@@ -129,6 +129,7 @@ ActiveRecord::Schema.define(version: 20160629222754) do
     t.boolean  "terrace_building"
     t.integer  "manager_id"
     t.string   "property_type"
+    t.boolean  "disability_accessible"
   end
 
   add_index "properties", ["manager_id"], name: "index_properties_on_manager_id"
