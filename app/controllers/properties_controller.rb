@@ -2,7 +2,7 @@ class PropertiesController < ApplicationController
 before_filter :authenticate_manager!  
   
   def index
-    @property = Property.where(:manager_id => current_manager.id)
+    @property = Property.where(:manager_id => current_manager.id).order('lower(property_name) ASC')
   end
   
   def show
