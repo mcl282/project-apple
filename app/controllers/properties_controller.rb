@@ -1,5 +1,6 @@
 class PropertiesController < ApplicationController
 before_filter :authenticate_manager!  
+
   
   def index
     @property = Property.where(:manager_id => current_manager.id).order('lower(property_name) ASC')
@@ -27,10 +28,23 @@ before_filter :authenticate_manager!
 
   def edit
     @property = Property.find(params[:id])
+
   end
 
   def update
     @property = Property.find(params[:id])
+      respond_to do |format|
+      if @property.update_attributes(property_params)
+        format.html { redirect_to(@property, :notice => 'Property was successfully updated.') }
+        format.json { respond_with_bip(@property) }
+      else
+        format.html { render :action => "edit" }
+        format.json { respond_with_bip(@property) }
+      end
+    end
+  
+  #@property.update_attributes(params[:property])
+  #respond_with @property    
    # if #@user.update_attributes(user_params)
      # flash[:success] = "Profile updated"
       #redirect_to @user
