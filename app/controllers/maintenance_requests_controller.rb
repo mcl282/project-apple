@@ -17,7 +17,7 @@ end
   end
 
   def new
-  
+    @new_maintenance_request = MaintenanceRequest.new
   end
 
   def create

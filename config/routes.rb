@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   
-  resources :maintenance_requests #restrict controller actions by using this syntax:  , only: [:edit]
-  resources :maintenance_threads
+  
+  resources :maintenance_threads, shallow: true do
+    resources :maintenance_requests #restrict controller actions by using this syntax:  , only: [:edit]
+  end
+  
   #get 'maintenance_requests/index'
 
   #get 'maintenance_requests/show'
@@ -29,7 +32,9 @@ Rails.application.routes.draw do
   #this is the callback url for inbound email responses to maintenance request messages
   get 'email-response-to-maintenance-request'=>'maintenance_requests#email_response_to_maintenance_request'
   
-  resources :properties
+  resources :properties, shallow: true do
+    resources :units #restrict controller actions by using this syntax:  , only: [:edit]
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

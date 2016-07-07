@@ -1,10 +1,42 @@
 <h1>MaintenanceThreads#index</h1>
 <p>Find me in app/views/maintenance_threads/index.html.erb</p>
-<%= link_to "Submit new request", new_maintenance_thread_path %>
 
-<%= current_manager.email unless current_manager == nil %>
-<%= "#{current_tenant.first_name} #{current_tenant.last_name}" unless current_tenant == nil %>
+<p><%= current_manager.email unless current_manager == nil %></p>
 
+<% if current_tenant == nil%>
+  <%= "#{current_manager.first_name} #{current_manager.last_name}"%>
+  <% elsif current_manager == nil %>
+  <p><%= "#{current_tenant.first_name} #{current_tenant.last_name}"%></p>
+<% end %>
+
+<br/>
+<div = "row">
+  <h3>Submit new request</h3>
+    <%= form_for (@new_thread) do |f|%>
+      <%= render 'shared/error_messages', object: f.object %>
+      
+      <div class="form-group">
+        <%= f.text_field :maintenance_thread_title, placeholder: "Request title", class: "form-control" %>
+        <% if tenant_signed_in? %>
+          <%=  f.hidden_field :tenant_id, :value => current_tenant.id %>
+        <% elsif manager_signed_in? %>
+          <%= f.hidden_field :manager_id, :value => current_manager.id %>
+        <% end %>
+      <div class="form-group">  
+        <%= f.fields_for :maintenance_requests do |rqst| %>
+          <%= rqst.text_area :request_message, placeholder: "Please proivde details of service requested", size: "60x12", class: "form-control" %>
+          
+            <% if tenant_signed_in? %>
+              <%=  rqst.hidden_field :tenant_id, :value => current_tenant.id %>
+            <% elsif manager_signed_in? %>
+              <%= rqst.hidden_field :manager_id, :value => current_manager.id %>
+            <% end %>    
+        <% end %>
+      </div>
+        <%= f.submit "Submit", class: "btn btn-default" %>
+      </div>
+    <% end %>
+</div>
 
 <div = "row">
   <div class="col-md-6">

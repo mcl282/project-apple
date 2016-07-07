@@ -14,11 +14,13 @@ end
       @maintenance_threads = MaintenanceThread.where(:maintenance_team_id => current_manager.maintenance_team_id)
     #
     end
+      @new_thread = MaintenanceThread.new
+      @request = @new_thread.maintenance_requests.new
   end
 
   def show
     #allows tenant to create a new request from the threads show page
-    @maintenance_request = MaintenanceRequest.new
+    @new_response = MaintenanceRequest.new
     
     #allows tenant to create a new request from the threads show page
     @maintenance_thread = MaintenanceThread.find(params[:id])
@@ -36,18 +38,29 @@ end
   end
 
   def new
+    @new_maintenance_request = MaintenanceRequest.new
     @maintenance_thread = MaintenanceThread.new
     @maintenance_thread.maintenance_requests.build
   end
 
   def create
-    @maintenance_thread = current_tenant.maintenance_threads.build(maintenance_thread_params)
-    if @maintenance_thread.save
+    @new_thread = MaintenanceThread.new(maintenance_thread_params)
+    if @new_thread.save
       flash[:success] = "Request successfully submitted!"
-      redirect_to @maintenance_thread
+      redirect_to maintenance_threads_path
     else
       flash[:unsuccessful] = "Request was not submitted, please try again."
     end
+
+    @new_response = MaintenanceRequest.new(maintenance_request_params)
+    if @new_response.save
+      flash[:success] = "Request successfully submitted!"
+      redirect_to :back
+    else
+      flash[:unsuccessful] = "Request was not submitted, please try again."
+    end
+
+
   end
 
   def edit
@@ -70,6 +83,10 @@ end
   private
     def maintenance_thread_params
       params.require(:maintenance_thread).permit(:tenant_id, :maintenance_thread_title,:thread_open, maintenance_requests_attributes: [:id,:tenant_id, :maintenance_thread_id, :request_message])
+    end
+  
+    def maintenance_request_params
+      params.require(:maintenance_request).permit(:tenant_id, :manager_id,:maintenance_thread_id, :request_message, :maintenance_team_id)
     end
     
     def close_thread_params

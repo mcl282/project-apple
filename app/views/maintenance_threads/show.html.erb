@@ -1,35 +1,52 @@
 <h1>MaintenanceThreads#show</h1>
 <p>Find me in app/views/maintenance_threads/show.html.erb</p>
 
-<%= link_to "View all maintenance requests", maintenance_threads_path %><br>
-<%= link_to "Create new maintenance request", new_maintenance_thread_path %>
+<%= link_to "View all maintenance requests", maintenance_threads_path %>
 
+<div = "row">
+  <div class="col-md-6">
+  <h3><%= "#{@maintenance_thread.maintenance_thread_title}" %></h3> 
+    <h5><%= "submitted #{@maintenance_thread.created_at.strftime("%B %e, %Y at %I:%M %p")}" %></h5>
 
-
-<div class = "row">
-  <div class="col-md-5">
-    <h3><%= "#{@maintenance_thread.maintenance_thread_title}" %></h3> 
-        <h5><%= "submitted #{@maintenance_thread.created_at.strftime("%B %e, %Y at %I:%M %p")}" %></h5>
-        <%= render 'maintenance_requests/maintenance_request_form' %>
-      
       <div class="panel-default">  
         <% @maintenance_requests.each do |rqst|%>
-            <% if rqst.tenant_id == nil %> 
-              <div class="panel-heading panel-heading-manager">
-                <h3 class="panel-title">
-                  <%="#{rqst.manager.first_name} #{rqst.manager.last_name}"%>
-            <% elsif rqst.manager_id== nil %>
-              <div class="panel-heading panel-heading-tenant">
-                <h3 class="panel-title">
-                  <%="#{rqst.tenant.first_name} #{rqst.tenant.last_name}"%>
-              <% end %>
+          <% if rqst.tenant_id == nil %> 
+            <div class="panel-heading panel-heading-manager">
+              <h3 class="panel-title">
+              <%="#{rqst.manager.first_name} #{rqst.manager.last_name}"%>
+          <% elsif rqst.manager_id== nil %>
+            <div class="panel-heading panel-heading-tenant">
+              <h3 class="panel-title">
+              <%="#{rqst.tenant.first_name} #{rqst.tenant.last_name}"%>
+          <% end %>
               </h3>
-          </div>
+            </div>
+
           <div class="panel-body panel-body-custom">      
             <p><i><%= rqst.created_at.strftime("%B %e, %Y at %I:%M %p") %></i></p>
             <p><%= rqst.request_message %></p>
           </div>
         <% end %>
+          </div>
       </div>
-  </div>  
+  </div>
+
+  <div class="col-md-6">
+    <br/>
+  <h3>Send a new message</h3>
+    <%= form_for ([@maintenance_thread, @new_response]) do |f|%>
+      <%= render 'shared/error_messages', object: f.object %>
+         <%= f.text_area :request_message, placeholder: "Please type message here", class: "form-control", rows: "12" %>
+      
+      <% if tenant_signed_in? %>
+        <%=  f.hidden_field :tenant_id, :value => current_tenant.id %>
+      <% elsif manager_signed_in? %>
+        <%= f.hidden_field :manager_id, :value => current_manager.id %>
+      <% end %>
+      <%= f.hidden_field :maintenance_thread_id, :value => @maintenance_thread.id %>
+      
+      <%= f.submit "Submit", class: "btn btn-primary btn-lg btn-block" %>
+
+    <% end %>
+</div>
 </div>
