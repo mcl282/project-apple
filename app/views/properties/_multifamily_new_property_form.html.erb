@@ -1,4 +1,7 @@
-<h1>New Multifamily Property</h1>
+<div class = "row">
+  <h3>Multifamily Property</h3>  
+</div>
+
   <div class = "row">
     <%= form_for (@property) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
@@ -88,10 +91,6 @@
               
           <div class="col-md-2">
             <div class="checkbox">
-        
-          
-              <%= f.check_box :washer_dryer_in_unit %> 
-              <%= f.label :washer_dryer_in_unit  %><br/>	
               
               <%= f.check_box :laundry_in_building %> 
               <%= f.label :laundry_in_building %><br/>
@@ -111,6 +110,6 @@
           </div>    
          </div>
         <%= f.hidden_field :manager_id, :value => current_manager.id%>
-        <%= f.submit "Add Building"%>
+        <%= f.submit submit_button_text(@property), class: 'btn btn-default'%>
     <% end %>
   </div>

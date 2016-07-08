@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160630214703) do
+ActiveRecord::Schema.define(version: 20160707215858) do
 
   create_table "location_logs", force: :cascade do |t|
     t.integer  "manager_id"
@@ -113,7 +113,6 @@ ActiveRecord::Schema.define(version: 20160630214703) do
     t.boolean  "elevator_building"
     t.boolean  "full_time_doorman"
     t.boolean  "concierge"
-    t.boolean  "washer_dryer_in_unit"
     t.boolean  "laundry_in_building"
     t.boolean  "fitness_center"
     t.boolean  "swimming_pool"
@@ -180,6 +179,10 @@ ActiveRecord::Schema.define(version: 20160630214703) do
     t.boolean  "balcony"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.string   "unit_label"
+    t.text     "unit_description"
+    t.boolean  "washer_dryer_in_unit"
+    t.integer  "unit_floor"
   end
 
   add_index "units", ["manager_id"], name: "index_units_on_manager_id"

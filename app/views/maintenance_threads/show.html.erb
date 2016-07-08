@@ -6,7 +6,7 @@
 <div = "row">
   <div class="col-md-6">
   <h3><%= "#{@maintenance_thread.maintenance_thread_title}" %></h3> 
-    <h5><%= "submitted #{@maintenance_thread.created_at.strftime("%B %e, %Y at %I:%M %p")}" %></h5>
+    <h5><%= "submitted #{@maintenance_thread.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%B %e, %Y at %I:%M %p")}" %></h5>
 
       <div class="panel-default">  
         <% @maintenance_requests.each do |rqst|%>
@@ -23,7 +23,7 @@
             </div>
 
           <div class="panel-body panel-body-custom">      
-            <p><i><%= rqst.created_at.strftime("%B %e, %Y at %I:%M %p") %></i></p>
+            <p><i><%= rqst.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%B %e, %Y at %I:%M %p") %></i></p>
             <p><%= rqst.request_message %></p>
           </div>
         <% end %>

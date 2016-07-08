@@ -1,0 +1,106 @@
+<%= render 'shared/error_messages', object: f.object %>
+  <div class = "row">
+    
+    <div class="form-group col-xs-1 col-md-3">
+      <%= f.label :unit_label, "Unit number"  %>
+      <%= f.text_field :unit_label, class: 'form-control', placeholder: "Unit number" %>
+    </div>
+
+    <div class="form-group col-xs-1 col-md-3">
+      <%= f.label :unit_floor, "Unit floor"  %>
+      <%= f.text_field :unit_floor, class: 'form-control', placeholder: "Unit floor" %>
+    </div>
+                
+    <div class="form-group col-xs-1 col-md-3">
+      <%= f.label :square_feet_unit, "Square feet"  %>
+      <%= f.text_field :square_feet_unit, class: 'form-control', placeholder: "Square feet" %>
+    </div> 
+    
+    <div class="form-group col-xs-1 col-md-3">
+      <%= f.label :floors, "Levels"  %>
+      <%= f.text_field :floors, class: 'form-control', placeholder: "Levels" %>
+    </div>
+
+   </div> 
+   
+ <div class ="row">
+    <div class="form-group col-xs-4 col-md-4">
+      <%= f.label :bedrooms  %>
+      <%= f.text_field :bedrooms, class: 'form-control', placeholder: "Bedrooms" %>
+    </div>
+    
+    <div class="form-group col-xs-4 col-md-4">
+      <%= f.label :bathrooms  %>
+      <%= f.text_field :bathrooms, class: 'form-control', placeholder: "Bathrooms" %>
+    </div> 
+    
+    <div class="form-group col-xs-4 col-md-4">
+      <%= f.label :total_rooms, "Total"  %>
+      <%= f.text_field :total_rooms, class: 'form-control', placeholder: "Total" %>
+    </div>            
+  </div>         
+        
+  <div class = "row">
+
+    <div class="col-md-8">
+      
+      <%= f.label :unit_description %> 
+      <%= f.text_area :unit_description, class: 'form-control',  rows: '9'%><br />	
+	    
+    </div>
+    
+    
+    <h4>Amenities</h4>
+     <div class="checkbox">
+       <div class="col-md-2">
+            
+        <%= f.check_box :central_air_conditioning %> 
+        <%= f.label :central_air_conditioning, "Central A/C" %><br/> 
+        
+        <%= f.check_box :washer_dryer_in_unit %> 
+        <%= f.label :washer_dryer_in_unit %><br/>  
+        
+        <%= f.check_box :dishwasher %> 
+        <%= f.label :dishwasher%><br/>      
+
+        <%= f.check_box :loft %>	
+        <%= f.label :loft %><br/>
+        
+        <%= f.check_box :storage_available %> 
+        <%= f.label :storage_available %><br/>	 
+        
+        <%= f.check_box :cable_and_internet %> 
+        <%= f.label :cable_and_internet %><br/>	
+        
+        <%= f.check_box :microwave %> 
+        <%= f.label :microwave%><br/>
+        
+        <%= f.check_box :fireplace %> 
+        <%= f.label :fireplace %><br/>
+        
+        <%= f.check_box :pre_furnished %> 
+        <%= f.label :pre_furnished %><br/>              
+
+        <%= f.check_box :disability_access %> 
+        <%= f.label :disability_access %><br/>
+
+      </div>
+
+      <div class="col-md-2">            
+        
+        <%= f.check_box :deck %> 
+        <%= f.label :deck %><br/>
+        
+        <%= f.check_box :roof_deck %> 
+        <%= f.label :roof_deck %><br/>   
+
+        
+        <%= f.check_box :terrace %> 
+        <%= f.label :terrace %><br/>
+        
+        <%= f.check_box :balcony %> 
+        <%= f.label :balcony %><br/> 
+      </div>
+    </div>    
+   </div>
+

@@ -1,0 +1,15 @@
+<% provide(:title, @unit.unit_label) %>
+<div class = "row">
+  <h2><%="#{@property.property_name}"%></h2>
+    <h3><%="#{@unit.unit_label}"%></h3>
+</div>    
+  <div class = "row">
+    <%= form_for @unit do |f| %>
+      <%= render "unit_info", f: f %>
+      <%= f.submit submit_button_text(@unit), class: 'btn btn-default' %>
+    <% end %>
+  </div> 
+
+
+
+

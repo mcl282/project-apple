@@ -1,0 +1,14 @@
+<% provide(:title, "Add new unit") %>
+ 
+<div class = "row">
+  <h3>Single Family Property</h3>
+</div>
+  <div class = "row">
+    <%= form_for ([@property, @unit]) do |f| %>
+      <%= render "unit_info", f: f %>
+      <%= f.hidden_field :property_id, :value => @property.id%>
+      <%= f.submit submit_button_text(@unit), class: 'btn btn-default' %>
+    <% end %>
+  </div> 
+
+

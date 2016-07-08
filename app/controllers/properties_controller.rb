@@ -28,19 +28,18 @@ before_filter :authenticate_manager!
 
   def edit
     @property = Property.find(params[:id])
+    @units = Unit.where(:property_id => @property.id)
 
   end
 
   def update
     @property = Property.find(params[:id])
-      respond_to do |format|
-      if @property.update_attributes(property_params)
-        format.html { redirect_to(@property, :notice => 'Property was successfully updated.') }
-        format.json { respond_with_bip(@property) }
-      else
-        format.html { render :action => "edit" }
-        format.json { respond_with_bip(@property) }
-      end
+    if @property.update_attributes(property_params)
+      flash[:success] = "Property was successfully updated."
+      redirect_to properties_path
+    else
+      flash[:error] = "Property was not created"
+      render edit_property_path
     end
   
   #@property.update_attributes(params[:property])
@@ -63,7 +62,7 @@ before_filter :authenticate_manager!
 
 private
     def property_params
-      params.require(:property).permit(:property_name, :property_address, :building_class, :year_built, :floor_count_building, :unit_count_building, :square_footage_building_total, :description, :cats_and_dogs_allowed, :elevator_building, :full_time_doorman, :concierge, :washer_dryer_in_unit, :laundry_in_building, :fitness_center, :swimming_pool, :parking_available, :common_area, :courtyard_building, :live_in_super, :storage_available, :bikeroom_in_building, :outdoor_space, :deck_building, :roof_deck_building, :terrace_building, :manager_id)
+      params.require(:property).permit(:property_name, :property_address, :building_class, :year_built, :floor_count_building, :unit_count_building, :square_footage_building_total, :description, :cats_and_dogs_allowed, :elevator_building, :full_time_doorman, :concierge, :washer_dryer_in_unit, :laundry_in_building, :fitness_center, :swimming_pool, :parking_available, :common_area, :courtyard_building, :live_in_super, :storage_available, :bikeroom_in_building, :disability_accessible, :outdoor_space, :deck_building, :roof_deck_building, :terrace_building, :manager_id)
     end
 
 end

@@ -1,83 +1,23 @@
 <div class = "row">
-  <h1>New Single Family Property</h1>
+  <h3>Single Family Property</h3>
 </div>
   <div class = "row">
     <%= form_for (@property) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
-        <div class = "row">
-          <div class="col-md-8">
-      
-            <%= f.label :property_name %>
-            <%= f.text_field :property_name, class: 'form-control', placeholder:"Please enter property name here" %><br/>
-                
-            <%= f.label :property_address %>
-            <%= f.text_field :property_address, class: 'form-control' %><br/>
-          </div> 
-        </div>
-              
-        <div class = "row">
-          <div class="col-md-4">
-            <%= f.label :year_built %>
-            <%= f.text_field :year_built, class: 'form-control' %><br/>
-            
-            <%= f.label :description %> 
-            <%= f.text_area :description, class: 'form-control',  rows: '3'%><br />	
-      	    
-          </div>
-        
-          <div class="col-md-2">
-              
-            <%= f.label :floor_count_building, "Total floors" %> 
-            <%= f.text_field :floor_count_building, class: 'form-control' %><br/>	
-            
-            <%= f.label :square_footage_building_tota, "Total square footage" %> 
-            <%= f.text_field :square_footage_building_total, class: 'form-control' %><br/> 
-              
-          </div>
-         
-          <div class="col-md-2">
-             <div class="checkbox">
-      
-              <%= f.check_box :swimming_pool %> 
-              <%= f.label :swimming_pool %><br/> 
-              
-              <%= f.check_box :parking_available %> 
-              <%= f.label :parking_available, "Parking" %><br/>      
-      
-              <%= f.check_box :cats_and_dogs_allowed %>	
-              <%= f.label :cats_and_dogs_allowed %><br/>
-              
-              <%= f.check_box :outdoor_space %> 
-              <%= f.label :outdoor_space %><br/>	 
-              
-              <%= f.check_box :laundry_in_building %> 
-              <%= f.label :laundry_in_building %><br/>	
-              
-              <%= f.check_box :disability_accessible %> 
-              <%= f.label :disability_accessible, "Disability access" %><br/>
-              
-              <%= f.check_box :deck_building %> 
-              <%= f.label :deck_building, "Deck" %><br/>
-              
-            </div>
-          </div>    
-         </div>
-         
-            <%= f.hidden_field :washer_dryer_in_unit, :value => nil%>
-            <%= f.hidden_field :full_time_doorman, :value => nil%>
-            <%= f.hidden_field :concierge, :value => nil%>
-            <%= f.hidden_field :live_in_super, :value => nil%>
-            <%= f.hidden_field :elevator_building, :value => nil%>
-            <%= f.hidden_field :fitness_center, :value => nil%>
-            <%= f.hidden_field :common_area, :value => nil%>
-            <%= f.hidden_field :courtyard_building, :value => nil%>
-            <%= f.hidden_field :storage_available, :value => nil%>
-            <%= f.hidden_field :bikeroom_in_building, :value => nil%>
-            <%= f.hidden_field :roof_deck_building, :value => nil%>  
-            <%= f.hidden_field :terrace_building, :value => nil%>  
-            <%= f.hidden_field :unit_count_building, :value => 1%> 
-            <%= f.hidden_field :building_class, :value => "NA - SF"%> 
-            <%= f.hidden_field :manager_id, :value => current_manager.id%>
-            <%= f.submit "Add Building", class: 'btn btn-default' %>
+      <%= render "property_form_fields", f: f %>
+        <%= f.hidden_field :full_time_doorman, :value => nil%>
+        <%= f.hidden_field :concierge, :value => nil%>
+        <%= f.hidden_field :live_in_super, :value => nil%>
+        <%= f.hidden_field :elevator_building, :value => nil%>
+        <%= f.hidden_field :fitness_center, :value => nil%>
+        <%= f.hidden_field :common_area, :value => nil%>
+        <%= f.hidden_field :courtyard_building, :value => nil%>
+        <%= f.hidden_field :storage_available, :value => nil%>
+        <%= f.hidden_field :bikeroom_in_building, :value => nil%>
+        <%= f.hidden_field :roof_deck_building, :value => nil%>  
+        <%= f.hidden_field :terrace_building, :value => nil%>  
+        <%= f.hidden_field :unit_count_building, :value => 1%> 
+        <%= f.hidden_field :building_class, :value => "NA - SF"%> 
+        <%= f.hidden_field :manager_id, :value => current_manager.id%>
+        <%= f.submit submit_button_text(@property), class: 'btn btn-default' %>
     <% end %>
   </div>

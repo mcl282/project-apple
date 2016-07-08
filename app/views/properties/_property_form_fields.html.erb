@@ -1,0 +1,68 @@
+
+  <%= render 'shared/error_messages', object: f.object %>
+    <div class = "row">
+      <div class="col-md-8">
+  
+        <%= f.label :property_name %>
+        <%= f.text_field :property_name, class: 'form-control', placeholder:"Please enter property name here" %><br/>
+            
+        <%= f.label :property_address %>
+        <%= f.text_field :property_address, class: 'form-control' %><br/>
+      </div> 
+    </div>
+          
+    <div class = "row">
+
+      <div class="col-md-4">
+        
+        <%= f.label :description %> 
+        <%= f.text_area :description, class: 'form-control',  rows: '9'%><br />	
+  	    
+      </div>
+      
+      <div class="col-md-2">
+        <%= f.label :year_built %>
+        <%= f.text_field :year_built, class: 'form-control' %><br/>
+          
+        <%= f.label :floor_count_building, "Total floors" %> 
+        <%= f.text_field :floor_count_building, class: 'form-control' %><br/>	
+        
+        <%= f.label :square_footage_building_total, "Total square footage" %> 
+        <%= f.text_field :square_footage_building_total, class: 'form-control' %><br/> 
+          
+      </div>
+
+    
+
+     
+      <div class="col-md-2">
+        <h4>Amenities</h4>
+         <div class="checkbox">
+              
+          <%= f.check_box :swimming_pool %> 
+          <%= f.label :swimming_pool %><br/> 
+          
+          <%= f.check_box :parking_available %> 
+          <%= f.label :parking_available, "Parking" %><br/>      
+  
+          <%= f.check_box :cats_and_dogs_allowed %>	
+          <%= f.label :cats_and_dogs_allowed %><br/>
+          
+          <%= f.check_box :outdoor_space %> 
+          <%= f.label :outdoor_space %><br/>	 
+          
+          <%= f.check_box :laundry_in_building %> 
+          <%= f.label :laundry_in_building %><br/>	
+          
+          <%= f.check_box :disability_accessible %> 
+          <%= f.label :disability_accessible, "Disability access" %><br/>
+          
+          <%= f.check_box :deck_building %> 
+          <%= f.label :deck_building, "Deck" %><br/>
+          
+        </div>
+      </div>    
+     </div>
+     
+
+

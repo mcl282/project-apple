@@ -3,11 +3,13 @@
   <tr>
     <th>Property Name</th>
     <th>Property Address</th>
+    <th></th>
   </tr>
     <% @property.each do |property| %>    
   <tr>
-    <td><p><%= link_to "#{property.property_name}", edit_property_path(property.id) %><%=  %></p></td>
+    <td><p><%= link_to "#{property.property_name}", edit_property_path(property.id) %></p></td>
     <td><p><%= property.property_address %></p></td>
+    <td><p><%= link_to "Add Unit", new_property_unit_path(property.id) %></p></td>
   </tr>
     <% end %>
 </table>

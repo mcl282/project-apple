@@ -10,4 +10,5 @@ class Property < ActiveRecord::Base
 
   validates :property_name, :property_address, :year_built, presence: true
   validates :year_built, numericality: { only_integer: true }
+  validates_length_of :year_built, :is => 4
 end
