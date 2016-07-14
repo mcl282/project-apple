@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160707215858) do
+ActiveRecord::Schema.define(version: 20160708163109) do
 
   create_table "location_logs", force: :cascade do |t|
     t.integer  "manager_id"
@@ -97,6 +97,17 @@ ActiveRecord::Schema.define(version: 20160707215858) do
   add_index "managers", ["maintenance_team_id"], name: "index_managers_on_maintenance_team_id"
   add_index "managers", ["property_id"], name: "index_managers_on_property_id"
   add_index "managers", ["reset_password_token"], name: "index_managers_on_reset_password_token", unique: true
+
+  create_table "photos", force: :cascade do |t|
+    t.string   "photo_file_name"
+    t.integer  "property_id"
+    t.integer  "unit_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "photos", ["property_id"], name: "index_photos_on_property_id"
+  add_index "photos", ["unit_id"], name: "index_photos_on_unit_id"
 
   create_table "properties", force: :cascade do |t|
     t.string   "property_name"

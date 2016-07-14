@@ -35,6 +35,13 @@ gem 'figaro', '~> 1.1', '>= 1.1.1'
 #for sendgrid web API
 gem 'sendgrid', '~> 1.2', '>= 1.2.4'
 
+#for photo uploads
+gem 'carrierwave', '~> 0.11.2'
+gem 'mini_magick', '~> 4.5', '>= 4.5.1'
+gem 'fog', '~> 1.38'
+
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

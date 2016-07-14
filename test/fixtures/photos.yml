@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  photo_file_name: MyString
+  property_id: 
+  unit_id: 
+
+two:
+  photo_file_name: MyString
+  property_id: 
+  unit_id: 

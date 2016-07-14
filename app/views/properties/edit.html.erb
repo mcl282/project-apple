@@ -4,9 +4,20 @@
   <h1><%= @property.property_name %></h1>
 </div>
 
+<div class = "row">
+  <div class = "col-md-10">
+    <%= render 'single_family_new_property_form' %>  
+  </div>
 
+  <div class = "col-md-2">
+    <% @photos.each do |photo| %>
+      <%= image_tag(photo.photo_file_name.url, size: "64")  %>
+    <%end%>
+  </div>
 
-  <%= render 'single_family_new_property_form' %>
+</div>
+
+  
 
 <br/>
 

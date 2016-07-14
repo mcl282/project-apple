@@ -2,7 +2,8 @@
   <h3>Single Family Property</h3>
 </div>
   <div class = "row">
-    <%= form_for (@property) do |f| %>
+    <%= form_for @property, html: { multipart: true } do |f| %>
+
       <%= render "property_form_fields", f: f %>
         <%= f.hidden_field :full_time_doorman, :value => nil%>
         <%= f.hidden_field :concierge, :value => nil%>
@@ -18,6 +19,16 @@
         <%= f.hidden_field :unit_count_building, :value => 1%> 
         <%= f.hidden_field :building_class, :value => "NA - SF"%> 
         <%= f.hidden_field :manager_id, :value => current_manager.id%>
-        <%= f.submit submit_button_text(@property), class: 'btn btn-default' %>
+        
+          <%= f.fields_for :photos do |photo| %>
+            <p>Add photos:</p>
+            <div class="field">
+              <%= photo.file_field :photo_file_name, accept: 'image/jpeg,image/gif,image/png'%>
+            </div>
+              <%= photo.hidden_field :property_id, :value => @property.id%>
+          <% end %>         
+              
+        
+        <%= f.submit "Update property", class: 'btn btn-default' %>
     <% end %>
   </div>
