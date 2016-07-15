@@ -1,5 +1,5 @@
-class Tenants::InvitationsController < Devise::InvitationsController
-
+class Tenant::InvitationsController < Devise::InvitationsController
+#class Tenants::InvitationsController < Devise::InvitationsController
   
 
   def new
