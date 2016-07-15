@@ -10,7 +10,7 @@ class Tenants::InvitationsController < Devise::InvitationsController
     super
   end
 
-   private
+
 
 end
 
