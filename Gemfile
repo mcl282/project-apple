@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # devise gem
 gem 'devise', '~> 3.5', '>= 3.5.6'
+gem 'devise_invitable', '~> 1.6'
 
 # gem for finding location based on ip address
 gem 'geocoder', '~> 1.3', '>= 1.3.1'
@@ -62,6 +63,8 @@ end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  #preview emails
+  gem 'letter_opener', '~> 1.4', '>= 1.4.1'
 end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -72,6 +75,8 @@ group :development do
   
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  
+
 end
 
 group :test do  

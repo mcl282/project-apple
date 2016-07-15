@@ -17,7 +17,7 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   
   # Required by Devise.  Devise suggest "{ host: 'localhost', port: 3000 }", but I use below based on hartl tutorial
-  config.action_mailer.delivery_method = :test
+  config.action_mailer.delivery_method = :letter_opener
   host = 'project-apple-mcl282.c9users.io'
   config.action_mailer.default_url_options = { host: host}
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160708163109) do
+ActiveRecord::Schema.define(version: 20160714030656) do
 
   create_table "location_logs", force: :cascade do |t|
     t.integer  "manager_id"
@@ -160,9 +160,20 @@ ActiveRecord::Schema.define(version: 20160708163109) do
     t.integer  "property_id"
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "invitation_token"
+    t.datetime "invitation_created_at"
+    t.datetime "invitation_sent_at"
+    t.datetime "invitation_accepted_at"
+    t.integer  "invitation_limit"
+    t.integer  "invited_by_id"
+    t.string   "invited_by_type"
+    t.integer  "invitations_count",      default: 0
   end
 
   add_index "tenants", ["email"], name: "index_tenants_on_email", unique: true
+  add_index "tenants", ["invitation_token"], name: "index_tenants_on_invitation_token", unique: true
+  add_index "tenants", ["invitations_count"], name: "index_tenants_on_invitations_count"
+  add_index "tenants", ["invited_by_id"], name: "index_tenants_on_invited_by_id"
   add_index "tenants", ["property_id"], name: "index_tenants_on_property_id"
   add_index "tenants", ["reset_password_token"], name: "index_tenants_on_reset_password_token", unique: true
 
