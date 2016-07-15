@@ -3,6 +3,11 @@ ruby "2.3.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
+
+# devise gem
+gem 'devise', '~> 3.5', '>= 3.5.6'
+gem 'devise_invitable', '~> 1.6'
+
 #boostrap
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 # Use SCSS for stylesheets
@@ -23,9 +28,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-# devise gem
-gem 'devise', '~> 3.5', '>= 3.5.6'
-gem 'devise_invitable', '~> 1.6'
+
 
 # gem for finding location based on ip address
 gem 'geocoder', '~> 1.3', '>= 1.3.1'
